@@ -10,7 +10,7 @@
 
 import QtQuick 2.9
 import QtQuick.Controls 2.0
-import my_imagemanager 1.0
+import tw.ImageManager 1.0
 
 ApplicationWindow {
     id: root
@@ -18,13 +18,13 @@ ApplicationWindow {
     height: 480
     visible: true
 
-    ImageManager {
-        id: foobar
+    ImageManagerQML {
+        id: manager
     }
 
     Text {
         id: name
-        text: foobar.image_data_length
+        text: manager.image_data_length
         anchors.centerIn: parent
     }
 }

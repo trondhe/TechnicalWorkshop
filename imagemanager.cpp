@@ -5,11 +5,10 @@
 ImageManager::ImageManager(IEntryLoader &loader, IImageFetcher &web_download, IImageStorage &file_storage, QObject *parent)
     : QObject(parent), loader_(loader), download_(web_download), storage_(file_storage)
 {
-//    connect(&this->download_, &IImageFetcher::image_fetched, &this->storage_, &IImageStorage::store);
     connect(&this->download_, &IImageFetcher::image_fetched, [this](ImageFetchResponse response) {
         storage_.store(response.url, response.image);
     });
-
+    initialize();
 }
 
 void ImageManager::initialize()

@@ -25,7 +25,7 @@ SOURCES += \
 RESOURCES += qml.qrc
 
 CONFIG += qmltypes
-QML_IMPORT_NAME = my_imagemanager
+QML_IMPORT_NAME = ImageManagerQML
 QML_IMPORT_MAJOR_VERSION = 1
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
