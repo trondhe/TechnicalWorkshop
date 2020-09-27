@@ -6,9 +6,12 @@
 
 #include "iimage.h"
 
-class JsonLoader : public QObject, IEntryLoader
+class JsonLoader
+        : public QObject,
+        public IEntryLoader
 {
     Q_OBJECT
+    Q_INTERFACES(IEntryLoader)
 public:
     explicit JsonLoader(QDir file_path, QObject *parent = nullptr);
     bool load() override;

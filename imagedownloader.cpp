@@ -4,7 +4,7 @@
 #include <QNetworkReply>
 #include <QImage>
 
-ImageDownloader::ImageDownloader(QObject *parent) : QObject(parent)
+ImageDownloader::ImageDownloader()
 {
     connect(&this->nam_, &QNetworkAccessManager::finished, this, &ImageDownloader::request_complete);
 }

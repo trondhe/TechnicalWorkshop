@@ -7,11 +7,14 @@
 
 #include "iimage.h"
 
-class ImageDownloader : public QObject, IImageFetcher
+class ImageDownloader
+        :
+        public IImageFetcher
 {
     Q_OBJECT
+    Q_INTERFACES(IImageFetcher)
 public:
-    explicit ImageDownloader(QObject *parent = nullptr);
+    explicit ImageDownloader();
     void fetch(QUrl photo_url) override;
 
 signals:

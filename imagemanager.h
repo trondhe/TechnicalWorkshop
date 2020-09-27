@@ -8,7 +8,7 @@
 
 #include "iimage.h"
 
-class ImageManager: public QObject
+class ImageManager : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int image_data_length READ image_data_length NOTIFY image_data_length_changed)

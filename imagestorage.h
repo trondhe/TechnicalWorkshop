@@ -3,11 +3,13 @@
 
 #include "iimage.h"
 
-class ImageStorage : public QObject, IImageStorage
+class ImageStorage
+        : public IImageStorage
 {
     Q_OBJECT
+    Q_INTERFACES(IImageStorage)
 public:
-    explicit ImageStorage(QObject *parent = nullptr);
+    explicit ImageStorage();
     void fetch(QUrl url) override;
     void store(QUrl url, QImage &image) override;
 
