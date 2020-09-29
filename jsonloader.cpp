@@ -33,18 +33,6 @@ std::optional<const ImageEntry> JsonLoader::view(QUrl url)
     return {};
 }
 
-QJsonDocument JsonLoader::readJsonFile()
-{
-    QFile file(file_path_.path());
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-    {
-        qWarning() << "Could not open file with path " << file_path_.path();
-    }
-    QString json_as_string = file.readAll();
-    file.close();
-    return QJsonDocument::fromJson(json_as_string.toUtf8());
-}
-
 void JsonLoader::populate()
 {
     auto doc = readJsonFile();
@@ -59,3 +47,17 @@ void JsonLoader::populate()
         list_.append(entry);
     }
 }
+
+QJsonDocument JsonLoader::readJsonFile()
+{
+    QFile file(file_path_.path());
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qWarning() << "Could not open file with path " << file_path_.path();
+    }
+    QString json_as_string = file.readAll();
+    file.close();
+    return QJsonDocument::fromJson(json_as_string.toUtf8());
+}
+
+

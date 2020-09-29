@@ -14,7 +14,7 @@ public:
     void store(QUrl url, QImage &image) override;
 
 signals:
-    void image_fetched(ImageFetchResponse response) override;
+    void image_fetched(ImageFetchResponse response);
 };
 
 #endif // IMAGESTORAGE_H

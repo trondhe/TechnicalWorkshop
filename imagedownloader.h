@@ -18,7 +18,7 @@ public:
     void fetch(QUrl photo_url) override;
 
 signals:
-    void image_fetched(ImageFetchResponse response) override;
+    void image_fetched(ImageFetchResponse response);
 
 private slots:
     void request_complete(QNetworkReply *reply);

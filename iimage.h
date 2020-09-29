@@ -28,7 +28,8 @@ class IImageFetcher : public QObject
     Q_OBJECT
 public:
     virtual void fetch(QUrl url) = 0;
-    virtual void image_fetched(ImageFetchResponse response) = 0;
+signals:
+    void image_fetched(ImageFetchResponse response);
 };
 #define IImageFetcher_iid "TW.IImageFetcher/1.0"
 Q_DECLARE_INTERFACE(IImageFetcher, IImageFetcher_iid)

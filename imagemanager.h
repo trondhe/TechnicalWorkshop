@@ -12,31 +12,25 @@ class ImageManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit ImageManager(
-            IEntryLoader &loader,
-            IImageFetcher &web_download,
-            IImageStorage &file_storage,
-            QObject *parent = nullptr);
-
+    explicit ImageManager( QObject *parent = nullptr);
     Q_PROPERTY(int image_data_length READ image_data_length NOTIFY image_data_length_changed)
 
+//    void init(IEntryLoader *loader, IImageFetcher *web_download, IImageStorage *file_storage);
     int image_data_length();
+    void init();
 
 
 signals:
-    void image_data_changed();
     void image_data_length_changed();
 
-private slots:
-    void image_fetched(ImageFetchResponse response);
-
 private:
-    IEntryLoader &loader_;
-    IImageFetcher &download_;
-    IImageStorage &storage_;
+    IEntryLoader* loader_;
+    IImageFetcher* download_;
+    IImageStorage* storage_;
     QMap<ImageEntry, QImage> image_data_;
 
     void initialize();
+    void image_received(ImageFetchResponse response);
 };
 
 #endif // IMAGEMANAGER_H

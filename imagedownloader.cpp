@@ -34,5 +34,5 @@ void ImageDownloader::request_complete(QNetworkReply *reply)
         .image = image,
         .status = ImageFetchResponseStatus::Success,
     };
-    emit image_fetched(resp);
+    emit IImageFetcher::image_fetched(resp);
 }

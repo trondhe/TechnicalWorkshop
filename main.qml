@@ -26,5 +26,6 @@ ApplicationWindow {
         id: name
         text: manager.image_data_length
         anchors.centerIn: parent
+
     }
 }
